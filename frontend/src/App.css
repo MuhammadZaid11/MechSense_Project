@@ -1,0 +1,276 @@
+.shell {
+  min-height: 100svh;
+  padding: 32px 24px 48px;
+  box-sizing: border-box;
+}
+
+.topbar,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 36px;
+  letter-spacing: -0.04em;
+}
+
+.subtitle,
+.status-detail,
+.muted li,
+dd,
+dt {
+  color: var(--muted);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 52ch;
+  line-height: 1.5;
+}
+
+.status-card {
+  min-width: 280px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--neutral);
+  flex-shrink: 0;
+}
+
+.status-connected .status-dot {
+  background: var(--ok);
+}
+
+.status-disconnected .status-dot {
+  background: var(--warn);
+}
+
+.status-error .status-dot {
+  background: var(--bad);
+}
+
+.status-checking .status-dot {
+  background: var(--neutral);
+}
+
+.status-label {
+  margin: 0 0 4px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.status-detail {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.inventory-panel {
+  grid-column: 1 / -1;
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+button {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--text);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 0;
+}
+
+dt {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+dd {
+  margin: 0;
+  color: var(--text);
+  word-break: break-all;
+}
+
+.muted ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+}
+
+.muted li + li {
+  margin-top: 8px;
+}
+
+.panel-note,
+.state-message {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.state-error {
+  color: #f0b0ab;
+}
+
+.table-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+.machine-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.machine-table th,
+.machine-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.machine-table th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.badge-running {
+  background: rgba(61, 190, 122, 0.16);
+  color: #7ee0a8;
+}
+
+.badge-stopped {
+  background: rgba(224, 180, 74, 0.16);
+  color: #f0d48a;
+}
+
+.badge-maintenance {
+  background: rgba(224, 90, 79, 0.16);
+  color: #f0b0ab;
+}
+
+.subheading {
+  margin: 20px 0 8px;
+  font-size: 16px;
+}
+
+.alert-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.alert-list li + li {
+  margin-top: 8px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 840px) {
+  .topbar,
+  .content,
+  .meta {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .topbar {
+    display: grid;
+  }
+
+  .status-card {
+    min-width: 0;
+  }
+}

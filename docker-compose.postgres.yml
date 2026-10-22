@@ -1,0 +1,30 @@
+# Dedicated PostgreSQL service for local development only.
+# This is not an application-wide Compose stack.
+#
+# Start:
+#   docker compose -f docker-compose.postgres.yml up -d
+#
+# Defaults match backend/.env.example placeholders. Override with a local
+# environment if needed. Do not commit real secrets.
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: mechsense-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-mechsense}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-mechsense}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - mechsense-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  mechsense-pgdata:

@@ -1,0 +1,2 @@
+-- Demo alert rules only. These are teaching thresholds, not certified limits.
+-- Applied by `npm run seed` using parameterized inserts and ON CONFLICT DO NOTHING.
